@@ -42,11 +42,4 @@ public class Decl {
         }
     }
 
-    public void print(int indent) {
-        if (option == 1) {
-            declint.print(indent);
-        } else if (option == 2) {
-            declclass.print(indent);
-        }
-    }
 }

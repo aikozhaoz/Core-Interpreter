@@ -106,18 +106,4 @@ public class Assign {
         }
     }
 
-    public void print(int indent) {
-        for (int i = 0; i < indent; i++) {
-            line += "  ";
-        }
-        System.out.print(line + idone + "=");
-        if (option == 1) {
-            System.out.println("new;");
-        } else if (option == 2) {
-            System.out.println("ref " + idtwo + ";");
-        } else if (option == 3) {
-            expr.print(indent);
-            System.out.println(";");
-        }
-    }
 }

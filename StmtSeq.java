@@ -36,10 +36,4 @@ public class StmtSeq {
         }
     }
 
-    public void print(int indent) {
-        stmt.print(indent);
-        if (option == 2) {
-            stmtseq.print(indent);
-        }
-    }
 }

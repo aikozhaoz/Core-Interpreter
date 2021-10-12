@@ -48,10 +48,4 @@ public class In {
         }
     }
 
-    public void print(int indent) {
-        for (int i = 0; i < indent; i++) {
-            line += "  ";
-        }
-        System.out.println(line + "input " + id + ";");
-    }
 }

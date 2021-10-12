@@ -68,17 +68,4 @@ public class Cond {
         }
     }
 
-    public void print(int indent) {
-        if (option == 1) {
-            System.out.print("!(");
-            cond.print(indent);
-            System.out.print(")");
-        } else if (option == 2) {
-            cmpr.print(indent);
-        } else if (option == 3) {
-            cmpr.print(indent);
-            System.out.print(" or ");
-            cond.print(indent);
-        }
-    }
 }

@@ -49,15 +49,4 @@ public class Cmpr {
         exprtwo.semantic(scopetrack);
     }
 
-    public void print(int indent) {
-        exprone.print(indent);
-        if (option == 1) {
-            System.out.print("==");
-        } else if (option == 2) {
-            System.out.print("<");
-        } else if (option == 3) {
-            System.out.print("<=");
-        }
-        exprtwo.print(indent);
-    }
 }

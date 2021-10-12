@@ -39,15 +39,4 @@ public class Loop {
         stmtseq.semantic(scopetrack);
     }
 
-    public void print(int indent) {
-        for (int i = 0; i < indent; i++) {
-            line += "  ";
-        }
-        System.out.print(line + "while ");
-        cond.print(indent);
-        System.out.println(" begin");
-        indent++;
-        stmtseq.print(indent);
-        System.out.println(line + "endwhile");
-    }
 }

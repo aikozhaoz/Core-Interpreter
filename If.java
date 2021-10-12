@@ -78,24 +78,4 @@ public class If {
             stmtseqtwo.semantic(scopetrack);
         }
     }
-
-    public void print(int indent) {
-        for (int i = 0; i < indent; i++) {
-            line += "  ";
-        }
-        System.out.print(line + "if ");
-        cond.print(indent);
-        System.out.println(" then");
-        indent++;
-        if (option == 1) {
-            stmtseqone.print(indent);
-            System.out.println(line + "endif");
-        } else if (option == 2) {
-            stmtseqone.print(indent);
-            System.out.println(line + "else");
-            stmtseqtwo.print(indent);
-            System.out.println(line + "endif");
-        }
-
-    }
 }

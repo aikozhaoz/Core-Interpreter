@@ -92,20 +92,4 @@ public class Stmt {
         }
     }
 
-    public void print(int indent) {
-        if (option == 1) {
-            assign.print(indent);
-        } else if (option == 2) {
-            ifobj.print(indent);
-        } else if (option == 3) {
-            loop.print(indent);
-        } else if (option == 4) {
-            in.print(indent);
-        } else if (option == 5) {
-            out.print(indent);
-        } else if (option == 6) {
-            decl.print(indent);
-        }
-
-    }
 }

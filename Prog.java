@@ -58,14 +58,4 @@ public class Prog {
         stmtseq.semantic(scopetrack);
     }
 
-    public void print(int indent) {
-        System.out.println("program");
-        if (option == 2) {
-            declseq.print(indent);
-        }
-        System.out.println("begin");
-        stmtseq.print(indent);
-        System.out.println("end");
-    }
-
 }

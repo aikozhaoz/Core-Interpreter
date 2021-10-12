@@ -29,12 +29,4 @@ public class DeclInt {
         idlist.semantic(scopetrack, Core.INT);
     }
 
-    public void print(int indent) {
-        for (int i = 0; i < indent; i++) {
-            line += "  ";
-        }
-        System.out.print(line + "int ");
-        idlist.print(indent);
-        System.out.println(";");
-    }
 }

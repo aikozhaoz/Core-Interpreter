@@ -39,13 +39,4 @@ public class Out {
     public void semantic(Stack<Map<String, Core>> scopetrack) {
         expr.semantic(scopetrack);
     }
-
-    public void print(int indent) {
-        for (int i = 0; i < indent; i++) {
-            line += "  ";
-        }
-        System.out.print(line + "output ");
-        expr.print(indent);
-        System.out.println(";");
-    }
 }
