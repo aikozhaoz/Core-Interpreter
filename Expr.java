@@ -45,14 +45,4 @@ public class Expr {
         }
     }
 
-    public void print(int indent) {
-        term.print(indent);
-        if (option == 2) {
-            System.out.print("+");
-            expr.print(indent);
-        } else if (option == 3) {
-            System.out.print("-");
-            expr.print(indent);
-        }
-    }
 }
