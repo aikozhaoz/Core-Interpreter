@@ -47,15 +47,11 @@ public class Prog {
         }
     }
 
-    public void semantic() {
-        if (option == 2) {
-            Map<String, Core> global = new HashMap<>();
-            scopetrack.add(global);
-            declseq.semantic(scopetrack);
+    public void execute(){
+        if (declseq != null){
+            declseq.execute();
         }
-        Map<String, Core> localLone = new HashMap<>();
-        scopetrack.add(localLone);
-        stmtseq.semantic(scopetrack);
+        stmtseq.execute();
     }
 
 }

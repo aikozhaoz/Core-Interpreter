@@ -29,10 +29,10 @@ public class StmtSeq {
         }
     }
 
-    public void semantic(Stack<Map<String, Core>> scopetrack) {
-        stmt.semantic(scopetrack);
-        if (option == 2) {
-            stmtseq.semantic(scopetrack);
+    public void execute(){
+        stmt.execute();
+        if (option == 2){
+            stmtseq.execute();
         }
     }
 

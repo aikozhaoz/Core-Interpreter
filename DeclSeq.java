@@ -27,11 +27,10 @@ public class DeclSeq {
         }
     }
 
-    public void semantic(Stack<Map<String, Core>> scopetrack) {
-        decl.semantic(scopetrack);
-        if (option == 2) {
-            declseq.semantic(scopetrack);
+    public void execute(){
+        decl.execute();
+        if (option == 2){
+            declseq.execute();
         }
-    }
 
 }
