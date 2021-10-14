@@ -49,4 +49,18 @@ public class Cmpr {
         exprtwo.semantic(scopetrack);
     }
 
+    public boolean execute(Memory memory){
+        boolean condition = true;
+        int exprOne = exprone.execute(memory);
+        int exprTwo = exprtwo.execute(memory);
+        if (option == 1){
+            condition = exprOne == exprTwo;
+        } else if (option == 2) {
+            condition = exprOne < exprTwo;
+        }else if(option == 3){
+            condition = exprOne <= exprTwo;
+        }
+        return condition;
+    }
+
 }

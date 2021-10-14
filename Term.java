@@ -37,4 +37,16 @@ public class Term {
         }
     }
 
+    public int execute(Memory memory){
+        int result = -1;
+        int factornum = factor.execute(memory);
+        if (option == 1){
+            result = factornum;
+        }else if (option ==2){
+            int termnum =term.execute(memory);
+            result = factornum * termnum;
+        }
+        return result;
+    }
+
 }

@@ -78,4 +78,19 @@ public class If {
             stmtseqtwo.semantic(scopetrack);
         }
     }
+
+    public void execute(Memory memory, Scanner inputScanner){
+        boolean condition = cond.execute(memory);
+        if (option == 1){
+            if(condition){
+                stmtseqone.execute(memory, inputScanner);
+            }
+        }else if(option ==2){
+            if(condition){
+                stmtseqone.execute(memory, inputScanner);
+            }else{
+                stmtseqtwo.execute(memory, inputScanner);
+            }
+        }
+    }
 }

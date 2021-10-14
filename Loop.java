@@ -39,4 +39,11 @@ public class Loop {
         stmtseq.semantic(scopetrack);
     }
 
+    public void execute(Memory memory, Scanner inputScanner){
+        boolean condition = cond.execute(memory);
+        while(condition){
+            stmtseq.execute(memory, inputScanner);
+        }
+    }
+
 }

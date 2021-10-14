@@ -29,10 +29,17 @@ public class StmtSeq {
         }
     }
 
-    public void execute(){
-        stmt.execute();
+    public void semantic(Stack<Map<String, Core>> scopetrack) {
+        stmt.semantic(scopetrack);
+        if (option == 2) {
+            stmtseq.semantic(scopetrack);
+        }
+    }
+    
+    public void execute(Memory memory, Scanner inputScanner){
+        stmt.execute(memory, inputScanner);
         if (option == 2){
-            stmtseq.execute();
+            stmtseq.execute(memory, inputScanner);
         }
     }
 

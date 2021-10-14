@@ -49,7 +49,6 @@ public class Factor {
     }
 
     public void semantic(Stack<Map<String, Core>> scopetrack) {
-        System.out.println(id);
         if (option == 3) {
             expr.semantic(scopetrack);
         }
@@ -61,7 +60,6 @@ public class Factor {
             for (Map<String, Core> currentscope : scopetrack) {
                 // If the current ID is declared. Check if the declared type is right.
                 if (currentscope.containsKey(key)) {
-                    System.out.println(key);
                     IDdeclared = true;
                 }
             }
@@ -71,5 +69,35 @@ public class Factor {
             }
 
         }
+    }
+
+    public int execute(Memory memory){
+        int result = -1;
+        if (option == 2){
+            result = cons;
+        }else if (option == 1){
+            String key = id;
+            Corevar val = new Corevar();
+            boolean keyInGlobal = true;
+            for (HashMap<String, Corevar> currentscope : memory.stackSpace) {
+                if (currentscope.containsKey(key)) {
+                    keyInGlobal = false;
+                    val = currentscope.get(key);
+                }
+            }
+            if (keyInGlobal){
+                if (memory.globalSpace.containsKey(key)) {
+                    val = memory.globalSpace.get(key);
+                }
+            }
+            if(val.type == Core.INT){
+                result = val.value;
+            }else if (val.type == Core.REF){
+                result = val.value;
+            }
+        }else if (option == 3){
+            result = expr.execute(memory);
+        }
+        return result;
     }
 }

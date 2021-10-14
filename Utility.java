@@ -54,4 +54,9 @@ public class Utility {
         System.out.println("Semantic Error! ");
         System.out.println("The current ID was declared with the wrong type  " + id);
     }
+
+    public static void InvalidInput(){
+        System.out.println("Runtime Error! ");
+        System.out.println("All values in the .data file have already been used.");
+    }
 }

@@ -92,4 +92,20 @@ public class Stmt {
         }
     }
 
+    public void execute(Memory memory, Scanner inputScanner) {
+        if (option == 1) {
+            assign.execute(memory);
+        } else if (option == 2) {
+            ifobj.execute(memory, inputScanner);
+        } else if (option == 3) {
+            loop.execute(memory, inputScanner);
+        } else if (option == 4) {
+            in.execute(memory, inputScanner);
+        } else if (option == 5) {
+            out.execute(memory);
+        } else if (option == 6) {
+            decl.execute(memory);
+        }
+    }
+
 }

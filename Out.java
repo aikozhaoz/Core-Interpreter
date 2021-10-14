@@ -39,4 +39,9 @@ public class Out {
     public void semantic(Stack<Map<String, Core>> scopetrack) {
         expr.semantic(scopetrack);
     }
+
+    public void execute (Memory memory){
+        int exprnum = expr.execute(memory);
+        System.out.println(exprnum);  
+    } 
 }

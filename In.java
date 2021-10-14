@@ -48,4 +48,19 @@ public class In {
         }
     }
 
+    public void execute(Memory memory, Scanner inputScanner){
+        String key = id;
+        if (inputScanner.tokens.size()==0){
+            Utility.InvalidInput();
+            System.exit(-1);
+        }
+        int num = inputScanner.getCONST();
+        inputScanner.nextToken();
+        Corevar val = new Corevar(Core.INT, num);
+        Stack<HashMap<String, Corevar>> stackSpace = Memory.stackSpace;
+        HashMap<String, Corevar> currentscope = stackSpace.pop();
+        currentscope.put(key, val);
+        stackSpace.push(currentscope);
+    }
+
 }

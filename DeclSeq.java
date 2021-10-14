@@ -27,10 +27,18 @@ public class DeclSeq {
         }
     }
 
-    public void execute(){
-        decl.execute();
-        if (option == 2){
-            declseq.execute();
+    public void semantic(Stack<Map<String, Core>> scopetrack) {
+        decl.semantic(scopetrack);
+        if (option == 2) {
+            declseq.semantic(scopetrack);
         }
+    }
+
+    public void execute(Memory memory){
+        decl.execute(memory);
+        if (option == 2){
+            declseq.execute(memory);
+        }
+    }
 
 }

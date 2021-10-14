@@ -5,7 +5,7 @@ class Main {
 		Scanner inputScanner = new Scanner(args[1]);
 		Prog root = new Prog();
 		root.parse(S);
-
 		root.semantic();
+		root.execute(inputScanner);
 	}
 }

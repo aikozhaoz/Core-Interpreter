@@ -47,11 +47,25 @@ public class Prog {
         }
     }
 
-    public void execute(){
-        if (declseq != null){
-            declseq.execute();
+    public void semantic() {
+        if (option == 2) {
+            Map<String, Core> global = new HashMap<>();
+            scopetrack.add(global);
+            declseq.semantic(scopetrack);
         }
-        stmtseq.execute();
+        Map<String, Core> localLone = new HashMap<>();
+        scopetrack.add(localLone);
+        stmtseq.semantic(scopetrack);
+    }
+
+    public void execute(Scanner inputScanner) {
+        Memory memory = Memory.getMemory();
+        if (declseq != null) {
+            memory.inGlobal = true;
+            declseq.execute(memory);
+        }
+        memory.inGlobal = false;
+        stmtseq.execute(memory, inputScanner);
     }
 
 }

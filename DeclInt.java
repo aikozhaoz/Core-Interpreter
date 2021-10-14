@@ -29,4 +29,8 @@ public class DeclInt {
         idlist.semantic(scopetrack, Core.INT);
     }
 
+    public void execute(Memory memory){
+        idlist.execute(memory, Core.INT);
+    }
+
 }

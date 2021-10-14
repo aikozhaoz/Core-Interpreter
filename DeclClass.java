@@ -29,4 +29,8 @@ public class DeclClass {
         idlist.semantic(scopetrack, Core.REF);
     }
 
+    public void execute(Memory memory){
+        idlist.execute(memory, Core.REF);
+    }
+
 }
