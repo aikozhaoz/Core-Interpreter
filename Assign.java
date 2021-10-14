@@ -107,6 +107,49 @@ public class Assign {
     }
 
     public void execute(Memory memory){
-        
+        String leftkey = idone;
+        String rightkey = idtwo;
+        Corevar leftvar = new Corevar();
+        Corevar rightvar = new Corevar();
+        boolean leftvarInGlobal = true;
+        boolean rightvarInGlobal = true;
+        for (HashMap<String, Corevar> currentscope : memory.stackSpace) {
+            if (currentscope.containsKey(leftkey)) {
+                leftvarInGlobal = false;
+                leftvar = currentscope.get(leftkey);
+            }
+            if (currentscope.containsKey(rightkey)) {
+                rightvarInGlobal = false;
+                rightvar = currentscope.get(rightkey);
+            }
+        }
+        if (leftvarInGlobal){
+            leftvar = memory.globalSpace.get(leftkey);
+        }
+        if (rightvarInGlobal){
+            rightvar = memory.globalSpace.get(rightkey);
+        }
+
+        if(option == 1){
+            int exprnum = expr.execute(memory);
+            if (leftvar.type == Core.INT){
+                leftvar.setvalue(exprnum);
+            }else if(leftvar.type == Core.REF){
+                if (leftvar.value == null){
+                    Utility.refIndexNull();
+                    System.exit(-1);
+                }
+                memory.heapSpace.set(leftvar.value, exprnum);
+            }
+        }else if (option == 2){
+            if(leftvar.type == Core.REF){
+                memory.heapSpace.add(leftvar.value);
+                leftvar.value = memory.heapSpace.size()-1;
+            }
+        }else if (option ==3){
+            if(leftvar.type == Core.REF && rightvar.type == Core.REF){
+                leftvar.value = rightvar.value;
+            }
+        }
     }
 }

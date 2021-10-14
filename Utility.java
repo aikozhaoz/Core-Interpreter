@@ -59,4 +59,9 @@ public class Utility {
         System.out.println("Runtime Error! ");
         System.out.println("All values in the .data file have already been used.");
     }
+
+    public static void refIndexNull(){
+        System.out.println("Runtime Error! ");
+        System.out.println("The class you are assigning constant to is null. ");
+    }
 }

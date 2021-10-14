@@ -14,4 +14,12 @@ public class Corevar {
         this.type = type;
         this.value = val;
     }
+
+    public void settype(Core type){
+        this.type = type;
+    }
+
+    public void setvalue(Integer val){
+        this.value = val;
+    }
 }

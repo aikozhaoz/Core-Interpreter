@@ -93,7 +93,7 @@ public class Factor {
             if(val.type == Core.INT){
                 result = val.value;
             }else if (val.type == Core.REF){
-                result = val.value;
+                result = memory.heapSpace.get(val.value);
             }
         }else if (option == 3){
             result = expr.execute(memory);
