@@ -79,6 +79,8 @@ class Scanner {
 						if (notletternotdigit) {
 							anchor--; // 0
 						}
+					}else{
+						anchor = i;
 					}
 				}
 				// Case: when current character is a digit
@@ -101,6 +103,8 @@ class Scanner {
 						if (notdigit) {
 							anchor--;
 						}
+					}else{
+						anchor = i;
 					}
 				}
 				// Case: when current character is a special character
@@ -132,8 +136,10 @@ class Scanner {
 				i = anchor;
 			}
 		}
+		System.out.println(tokens);
 		tokens.add("eof");
 	}
+
 
 	// nextToken should advance the scanner to the next token
 	public void nextToken() {

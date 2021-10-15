@@ -132,7 +132,9 @@ public class Assign {
 
         if(option == 1){
             int exprnum = expr.execute(memory);
+            System.out.println("Exprnum" + exprnum);
             if (leftvar.type == Core.INT){
+                System.out.println("Leftvar" + leftkey);
                 leftvar.setvalue(exprnum);
             }else if(leftvar.type == Core.REF){
                 if (leftvar.value == null){

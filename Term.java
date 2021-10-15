@@ -41,6 +41,7 @@ public class Term {
         int result = -1;
         int factornum = factor.execute(memory);
         if (option == 1){
+            System.out.println("termnum option1: "+ factornum);
             result = factornum;
         }else if (option ==2){
             int termnum =term.execute(memory);

@@ -67,5 +67,4 @@ public class Prog {
         memory.inGlobal = false;
         stmtseq.execute(memory, inputScanner);
     }
-
 }
