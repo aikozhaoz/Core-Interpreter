@@ -54,11 +54,11 @@ public class Cmpr {
         int exprOne = exprone.execute(memory);
         int exprTwo = exprtwo.execute(memory);
         if (option == 1){
-            condition = exprOne == exprTwo;
+            condition = (exprOne == exprTwo);
         } else if (option == 2) {
-            condition = exprOne < exprTwo;
+            condition = (exprOne < exprTwo);
         }else if(option == 3){
-            condition = exprOne <= exprTwo;
+            condition = (exprOne <= exprTwo);
         }
         return condition;
     }

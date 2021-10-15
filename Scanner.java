@@ -136,8 +136,7 @@ class Scanner {
 				i = anchor;
 			}
 		}
-		System.out.println(tokens);
-		tokens.add("eof");
+		this.tokens.add("eof");
 	}
 
 

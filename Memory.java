@@ -12,6 +12,8 @@ public class Memory
     private Memory(){
         globalSpace = new HashMap<String, Corevar>();
         stackSpace = new Stack<HashMap<String, Corevar>>();
+        HashMap<String, Corevar> basesapce = new HashMap<String, Corevar>();
+        stackSpace.push(basesapce);
         heapSpace = new ArrayList<Integer>();
     }
 

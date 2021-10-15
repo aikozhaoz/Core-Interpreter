@@ -72,12 +72,8 @@ public class Factor {
     }
 
     public int execute(Memory memory){
-        // System.out.println("Cons: "+ cons);
-        System.out.println("id: "+ id);
-        System.out.println("Option: "+ option);
         int result = -1;
         if (option == 2){
-            // System.out.println("Cons: "+ cons);
             result = cons;
         }else if (option == 1){
             String key = id;

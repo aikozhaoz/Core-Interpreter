@@ -83,13 +83,22 @@ public class If {
         boolean condition = cond.execute(memory);
         if (option == 1){
             if(condition){
+                HashMap<String, Corevar> scopeone = new HashMap<>();
+                memory.stackSpace.push(scopeone);
                 stmtseqone.execute(memory, inputScanner);
             }
+            memory.stackSpace.pop();
         }else if(option ==2){
             if(condition){
+                HashMap<String, Corevar> scopeone = new HashMap<>();
+                memory.stackSpace.push(scopeone);
                 stmtseqone.execute(memory, inputScanner);
+                memory.stackSpace.pop();
             }else{
+                HashMap<String, Corevar> scopetwo = new HashMap<>();
+                memory.stackSpace.push(scopetwo);
                 stmtseqtwo.execute(memory, inputScanner);
+                memory.stackSpace.pop();
             }
         }
     }

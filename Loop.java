@@ -40,10 +40,14 @@ public class Loop {
     }
 
     public void execute(Memory memory, Scanner inputScanner){
-        boolean condition = cond.execute(memory);
-        while(condition){
+        while(cond.execute(memory)){
+            HashMap<String, Corevar> scopeone = new HashMap<>();
+            memory.stackSpace.push(scopeone);
             stmtseq.execute(memory, inputScanner);
         }
+        memory.stackSpace.pop();
+        
     }
 
 }
+

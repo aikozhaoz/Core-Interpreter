@@ -129,12 +129,9 @@ public class Assign {
         if (rightvarInGlobal){
             rightvar = memory.globalSpace.get(rightkey);
         }
-
-        if(option == 1){
+        if(option == 3){
             int exprnum = expr.execute(memory);
-            System.out.println("Exprnum" + exprnum);
-            if (leftvar.type == Core.INT){
-                System.out.println("Leftvar" + leftkey);
+            if (leftvar.type == Core.INT){                
                 leftvar.setvalue(exprnum);
             }else if(leftvar.type == Core.REF){
                 if (leftvar.value == null){
@@ -143,12 +140,12 @@ public class Assign {
                 }
                 memory.heapSpace.set(leftvar.value, exprnum);
             }
-        }else if (option == 2){
+        }else if (option == 1){
             if(leftvar.type == Core.REF){
                 memory.heapSpace.add(leftvar.value);
                 leftvar.value = memory.heapSpace.size()-1;
             }
-        }else if (option ==3){
+        }else if (option ==2){
             if(leftvar.type == Core.REF && rightvar.type == Core.REF){
                 leftvar.value = rightvar.value;
             }
