@@ -35,10 +35,10 @@ public class StmtSeq {
             stmtseq.semantic(scopetrack);
         }
     }
-    
-    public void execute(Memory memory, Scanner inputScanner){
+
+    public void execute(Memory memory, Scanner inputScanner) {
         stmt.execute(memory, inputScanner);
-        if (option == 2){
+        if (option == 2) {
             stmtseq.execute(memory, inputScanner);
         }
     }

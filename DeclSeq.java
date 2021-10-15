@@ -34,9 +34,9 @@ public class DeclSeq {
         }
     }
 
-    public void execute(Memory memory){
+    public void execute(Memory memory) {
         decl.execute(memory);
-        if (option == 2){
+        if (option == 2) {
             declseq.execute(memory);
         }
     }

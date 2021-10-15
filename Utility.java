@@ -55,12 +55,12 @@ public class Utility {
         System.out.println("The current ID was declared with the wrong type  " + id);
     }
 
-    public static void InvalidInput(){
+    public static void InvalidInput() {
         System.out.println("Runtime Error! ");
         System.out.println("All values in the .data file have already been used.");
     }
 
-    public static void refIndexNull(){
+    public static void refIndexNull() {
         System.out.println("Runtime Error! ");
         System.out.println("The class you are assigning constant to is null. ");
     }

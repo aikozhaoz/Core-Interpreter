@@ -68,15 +68,15 @@ public class Cond {
         }
     }
 
-    public boolean execute(Memory memory){
+    public boolean execute(Memory memory) {
         boolean condition = true;
-        if (option == 2){
+        if (option == 2) {
             // System.out.println("secondwhileloop condition!!!");
             condition = cmpr.execute(memory);
         } else if (option == 1) {
             condition = !(cond.execute(memory));
-        }else if(option == 3){
-            condition =  (cmpr.execute(memory)) || (cond.execute(memory));
+        } else if (option == 3) {
+            condition = (cmpr.execute(memory)) || (cond.execute(memory));
         }
         return condition;
     }

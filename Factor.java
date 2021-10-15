@@ -71,11 +71,11 @@ public class Factor {
         }
     }
 
-    public int execute(Memory memory){
+    public int execute(Memory memory) {
         int result = -1;
-        if (option == 2){
+        if (option == 2) {
             result = cons;
-        }else if (option == 1){
+        } else if (option == 1) {
             String key = id;
             Corevar val = new Corevar();
             boolean keyInGlobal = true;
@@ -85,17 +85,17 @@ public class Factor {
                     val = currentscope.get(key);
                 }
             }
-            if (keyInGlobal){
+            if (keyInGlobal) {
                 if (memory.globalSpace.containsKey(key)) {
                     val = memory.globalSpace.get(key);
                 }
             }
-            if(val.type == Core.INT){
+            if (val.type == Core.INT) {
                 result = val.value;
-            }else if (val.type == Core.REF){
+            } else if (val.type == Core.REF) {
                 result = memory.heapSpace.get(val.value);
             }
-        }else if (option == 3){
+        } else if (option == 3) {
             result = expr.execute(memory);
         }
         return result;

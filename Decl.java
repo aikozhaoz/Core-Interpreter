@@ -42,7 +42,7 @@ public class Decl {
         }
     }
 
-    public void execute(Memory memory){
+    public void execute(Memory memory) {
         if (option == 1) {
             declint.execute(memory);
         } else if (option == 2) {

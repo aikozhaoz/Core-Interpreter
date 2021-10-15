@@ -45,16 +45,17 @@ public class Expr {
         }
     }
 
-    public int execute(Memory memory){
+    public int execute(Memory memory) {
         int result = -1;
-        int termnum = term.execute(memory);;
-        if (option == 1){
+        int termnum = term.execute(memory);
+        ;
+        if (option == 1) {
             result = termnum;
-        }else {
+        } else {
             int exprnum = expr.execute(memory);
-            if (option ==2){
+            if (option == 2) {
                 result = termnum + exprnum;
-            }else if (option ==3){
+            } else if (option == 3) {
                 result = termnum - exprnum;
             }
         }

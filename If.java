@@ -79,25 +79,31 @@ public class If {
         }
     }
 
-    public void execute(Memory memory, Scanner inputScanner){
+    public void execute(Memory memory, Scanner inputScanner) {
         boolean condition = cond.execute(memory);
-        if (option == 1){
-            if(condition){
+        if (option == 1) {
+            if (condition) {
+                // Enter a new scope
                 HashMap<String, Corevar> scopeone = new HashMap<>();
                 memory.stackSpace.push(scopeone);
                 stmtseqone.execute(memory, inputScanner);
-            }
-            memory.stackSpace.pop();
-        }else if(option ==2){
-            if(condition){
-                HashMap<String, Corevar> scopeone = new HashMap<>();
-                memory.stackSpace.push(scopeone);
-                stmtseqone.execute(memory, inputScanner);
+                // End scope
                 memory.stackSpace.pop();
-            }else{
+            }
+        } else if (option == 2) {
+            if (condition) {
+                // Enter a new scope
+                HashMap<String, Corevar> scopeone = new HashMap<>();
+                memory.stackSpace.push(scopeone);
+                stmtseqone.execute(memory, inputScanner);
+                // End scope
+                memory.stackSpace.pop();
+            } else {
+                // Enter a new scope
                 HashMap<String, Corevar> scopetwo = new HashMap<>();
                 memory.stackSpace.push(scopetwo);
                 stmtseqtwo.execute(memory, inputScanner);
+                // End scope
                 memory.stackSpace.pop();
             }
         }

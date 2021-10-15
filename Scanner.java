@@ -55,13 +55,16 @@ class Scanner {
 							anchor = j;
 							char nextc = chars.get(j);
 							// Condition to for keyword greedy approach.
-							// Only apply if currentword = end, since this is the only case we need keyword greedy approach.
-							if (currentword.equals("end") && (nextc == 'f' || nextc == 'c' || nextc == 'w' || nextc == 'i')) {
+							// Only apply if currentword = end, since this is the only case we need keyword
+							// greedy approach.
+							if (currentword.equals("end")
+									&& (nextc == 'f' || nextc == 'c' || nextc == 'w' || nextc == 'i')) {
 								currentword += nextc;
 							}
 							// Check if currentword is already a keyword.
 							// If so, stop the for Loop.
-							// Since it is an if else if logic, if the currentword == end, it would not go to this if else block any more.
+							// Since it is an if else if logic, if the currentword == end, it would not go
+							// to this if else block any more.
 							else if (keywords.contains(currentword)) {
 								anchor = j - 1;
 								j = chars.size();
@@ -79,7 +82,7 @@ class Scanner {
 						if (notletternotdigit) {
 							anchor--; // 0
 						}
-					}else{
+					} else {
 						anchor = i;
 					}
 				}
@@ -103,7 +106,7 @@ class Scanner {
 						if (notdigit) {
 							anchor--;
 						}
-					}else{
+					} else {
 						anchor = i;
 					}
 				}
@@ -138,7 +141,6 @@ class Scanner {
 		}
 		this.tokens.add("eof");
 	}
-
 
 	// nextToken should advance the scanner to the next token
 	public void nextToken() {

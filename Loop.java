@@ -39,15 +39,16 @@ public class Loop {
         stmtseq.semantic(scopetrack);
     }
 
-    public void execute(Memory memory, Scanner inputScanner){
-        while(cond.execute(memory)){
+    public void execute(Memory memory, Scanner inputScanner) {
+        while (cond.execute(memory)) {
+            // Start scope
             HashMap<String, Corevar> scopeone = new HashMap<>();
             memory.stackSpace.push(scopeone);
             stmtseq.execute(memory, inputScanner);
         }
+        // End Scope
         memory.stackSpace.pop();
-        
+
     }
 
 }
-

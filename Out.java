@@ -40,8 +40,8 @@ public class Out {
         expr.semantic(scopetrack);
     }
 
-    public void execute (Memory memory){
+    public void execute(Memory memory) {
         int exprnum = expr.execute(memory);
-        System.out.println(exprnum);  
-    } 
+        System.out.println(exprnum);
+    }
 }

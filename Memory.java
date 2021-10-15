@@ -1,15 +1,15 @@
 import java.util.*;
 
 // Using Singleton pattern since we only need ONE memory obj
-public class Memory 
-{
+public class Memory {
     public static HashMap<String, Corevar> globalSpace;
     public static Stack<HashMap<String, Corevar>> stackSpace;
     public static ArrayList<Integer> heapSpace;
     public static boolean inGlobal;
 
-    // Make the constructor private so that this class cannot be instantiated outside of this class
-    private Memory(){
+    // Make the constructor private so that this class cannot be instantiated
+    // outside of this class
+    private Memory() {
         globalSpace = new HashMap<String, Corevar>();
         stackSpace = new Stack<HashMap<String, Corevar>>();
         HashMap<String, Corevar> basesapce = new HashMap<String, Corevar>();
@@ -21,19 +21,7 @@ public class Memory
     private static Memory memory = new Memory();
 
     // Get the only instance available
-    public static Memory getMemory(){
+    public static Memory getMemory() {
         return memory;
-    } 
-
-    // public static HashMap<String, Corevar> getGlobal(){
-    //     return globalSpace;
-    // }
-
-    // public static Stack<HashMap<String, Corevar>> getStack(){
-    //     return stackSpace;
-    // }
-
-    // public static ArrayList<Integer> getHeap(){
-    //     return heapSpace;
-    // }
+    }
 }

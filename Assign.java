@@ -87,8 +87,8 @@ public class Assign {
                     rightType = true;
                 } else if (option == 2 && currentscope.get(idone) == Core.REF && currentscope.get(idtwo) == Core.REF) {
                     rightType = true;
-                } 
-                // If the current token is expr then expr will handle the semantic check. 
+                }
+                // If the current token is expr then expr will handle the semantic check.
                 // Set the rightType to true allows expr to do the semantic check.
                 else if (option == 3) {
                     rightType = true;
@@ -106,13 +106,15 @@ public class Assign {
         }
     }
 
-    public void execute(Memory memory){
+    public void execute(Memory memory) {
         String leftkey = idone;
         String rightkey = idtwo;
         Corevar leftvar = new Corevar();
         Corevar rightvar = new Corevar();
         boolean leftvarInGlobal = true;
         boolean rightvarInGlobal = true;
+        // Loop through both stackspace first searching for Corevars that are
+        // corresponding to leftkey and rightkey.
         for (HashMap<String, Corevar> currentscope : memory.stackSpace) {
             if (currentscope.containsKey(leftkey)) {
                 leftvarInGlobal = false;
@@ -123,30 +125,39 @@ public class Assign {
                 rightvar = currentscope.get(rightkey);
             }
         }
-        if (leftvarInGlobal){
+        // If any of them is not found in stack, search in global.
+        if (leftvarInGlobal) {
             leftvar = memory.globalSpace.get(leftkey);
         }
-        if (rightvarInGlobal){
+        if (rightvarInGlobal) {
             rightvar = memory.globalSpace.get(rightkey);
         }
-        if(option == 3){
+        // Option 3: <assign> ::= id = <expr>;
+        if (option == 3) {
             int exprnum = expr.execute(memory);
-            if (leftvar.type == Core.INT){                
+            if (leftvar.type == Core.INT) {
                 leftvar.setvalue(exprnum);
-            }else if(leftvar.type == Core.REF){
-                if (leftvar.value == null){
+            } else if (leftvar.type == Core.REF) {
+                // If leftvar is a reference type and its corresponding value = null.
+                // Cannot assign value to leftvar.
+                // Print runtime error
+                if (leftvar.value == null) {
                     Utility.refIndexNull();
                     System.exit(-1);
                 }
                 memory.heapSpace.set(leftvar.value, exprnum);
             }
-        }else if (option == 1){
-            if(leftvar.type == Core.REF){
+        }
+        // Option 1: <assign> ::= id = new;
+        else if (option == 1) {
+            if (leftvar.type == Core.REF) {
                 memory.heapSpace.add(leftvar.value);
-                leftvar.value = memory.heapSpace.size()-1;
+                leftvar.value = memory.heapSpace.size() - 1;
             }
-        }else if (option ==2){
-            if(leftvar.type == Core.REF && rightvar.type == Core.REF){
+        }
+        // Option 2: <assign> ::= id = ref id;
+        else if (option == 2) {
+            if (leftvar.type == Core.REF && rightvar.type == Core.REF) {
                 leftvar.value = rightvar.value;
             }
         }

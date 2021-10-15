@@ -60,11 +60,13 @@ public class Prog {
 
     public void execute(Scanner inputScanner) {
         Memory memory = Memory.getMemory();
+        // Option 1: <prog> ::= program <decl-seq> begin <stmt-seq> end
         if (declseq != null) {
             memory.inGlobal = true;
             declseq.execute(memory);
         }
         memory.inGlobal = false;
+        // Option 2: <prog> ::= program begin <stmt-seq> end
         stmtseq.execute(memory, inputScanner);
     }
 }

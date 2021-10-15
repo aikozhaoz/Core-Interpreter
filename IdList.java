@@ -63,6 +63,7 @@ public class IdList {
         HashMap<String, Corevar> currentscope = new HashMap<String, Corevar>();
         // Check if we are currently in globalSpace
         // If so we are only going to add String, Corevar pair to globalSpace
+        // Otherwise, add to stack.
         if (memory.inGlobal) {
             currentscope = memory.globalSpace;
         } else {

@@ -50,13 +50,13 @@ public class In {
 
     public void execute(Memory memory, Scanner inputScanner) {
         String key = id;
+        // Check if there's any available data left in the data file
         if (inputScanner.tokens.size() == 1) {
             Utility.InvalidInput();
             System.exit(-1);
         }
         Core currentToken = inputScanner.currentToken();
         int num = inputScanner.getCONST();
-        // System.out.println(num);
         inputScanner.nextToken();
         Corevar val = new Corevar(Core.INT, num);
         Stack<HashMap<String, Corevar>> stackSpace = Memory.stackSpace;
