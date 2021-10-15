@@ -48,9 +48,9 @@ public class In {
         }
     }
 
-    public void execute(Memory memory, Scanner inputScanner){
+    public void execute(Memory memory, Scanner inputScanner) {
         String key = id;
-        if (inputScanner.tokens.size()==1){
+        if (inputScanner.tokens.size() == 1) {
             Utility.InvalidInput();
             System.exit(-1);
         }
