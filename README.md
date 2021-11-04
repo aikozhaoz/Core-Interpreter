@@ -60,6 +60,7 @@
     * Value: int --> the actual int value | ref --> the pointer
 
 ### Grammar classes:
+<img width="747" alt="core_grammar" src="https://user-images.githubusercontent.com/57778547/140388144-e59d4f02-7bfa-4e2a-946f-335bbbb91c12.png">
 
 
 
